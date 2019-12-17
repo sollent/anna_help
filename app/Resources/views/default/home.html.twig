@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 style="text-align: center">Проект</h1>
+        {% if app.user %}
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <a style="margin-top: 20px;" href="{{ path('app_admin_admin') }}" type="button" class="btn btn-primary btn-lg btn-block">Административная панель</a>
+            {% else %}
+                <a style="margin-top: 20px;" href="{{ path('app') }}" type="button" class="btn btn-primary btn-lg btn-block">Аккаунт пользователя</a>
+            {% endif %}
+            <a style="margin-top: 20px;" href="{{ path('logout') }}" type="button" class="btn btn-danger">Выход</a>
+        {% endif %}
+    </div>
+{% endblock %}

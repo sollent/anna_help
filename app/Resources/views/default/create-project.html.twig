@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container" style="padding: 50px">
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                {% if type == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {% if type == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+
+        <h1>Админка</h1>
+
+        {{ form(form) }}
+
+    </div>
+{% endblock %}
