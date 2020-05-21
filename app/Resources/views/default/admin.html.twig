@@ -18,7 +18,7 @@
         {% endfor %}
 
 
-        <h1>Админка</h1>
+        <h1>Административная панель</h1>
 
         <a style="margin-top: 20px;" href="{{ path('app_admin_createproject') }}" type="button" class="btn btn-primary btn-lg btn-block">Создать проект</a>
 
@@ -32,7 +32,8 @@
                    <div class="col-md-4">
                        <div class="card" style="width: 100%;">
                            <div class="card-body">
-                               <h5 class="card-title">{{ user.username }}</h5>
+                               <h5 style="margin-bottom: 5px;" class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+                               <em>{{ user.username }}</em>
                                {% for project in user.projectsTime %}
                                    <div style="margin-top: 15px;">
                                        <h6 class="card-subtitle mb-2 text-muted">{{ project.project.title }}</h6>
